@@ -234,6 +234,11 @@ config TARGET_SMARC_RZG3S
 	bool "RZ/G3S SMARC board"
 	help
           Support for Renesas RZ/G3S SMARC Platform
+	  
+config TARGET_UTI_RZG2L_BOARD
+	bool "RZ/G2L Ultratec custom board"
+	help
+	  This is a prototype custom board with RZ/G2L          
 
 endchoice
 
@@ -255,6 +260,7 @@ source "board/renesas/rzv2l-dev/Kconfig"
 source "board/renesas/rzg2lc-dev/Kconfig"
 source "board/renesas/rzg2ul-dev/Kconfig"
 source "board/renesas/rzg3s-dev/Kconfig"
+source "board/Ultratec/UTI_rzg2l_board/Kconfig"
 
 config MULTI_DTB_FIT_UNCOMPRESS_SZ
 	default 0x80000 if TARGET_HIHOPE_RZG2

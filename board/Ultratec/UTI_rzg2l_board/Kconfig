@@ -1,0 +1,17 @@
+if TARGET_UTI_RZG2L_BOARD
+
+config SYS_SOC
+	default "rmobile"
+
+config SYS_BOARD
+	default "UTI_rzg2l_board"
+
+config SYS_VENDOR
+	default "Ultratec"
+
+config SYS_CONFIG_NAME
+	default "UTI_rzg2l_board"
+
+endif
+
+
