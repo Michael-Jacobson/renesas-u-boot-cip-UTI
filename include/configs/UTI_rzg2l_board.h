@@ -20,11 +20,6 @@
 #define CONFIG_SETUP_MEMORY_TAGS
 #define CONFIG_INITRD_TAG
 
-#define CONFIG_CMD_BMP
-#define CONFIG_BMP_16BPP
-#define CONFIG_BMP_24BMP
-#define CONFIG_BMP_24BPP
-#define CONFIG_BMP_32BPP
 
 /* Generic Interrupt Controller Definitions */
 /* RZ/G2L use GIC-v3 */
