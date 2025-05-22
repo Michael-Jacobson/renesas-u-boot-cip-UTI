@@ -59,27 +59,16 @@
 #define CONFIG_BOARD_SIZE_LIMIT		1048576
 
 /* ENV setting */
-#define BOOT_TARGET_MMC0(func)	func(MMC, mmc, 0)
-
-#define BOOT_TARGET_DEVICES(func) \
-	BOOT_TARGET_MMC0(func)
-
-#include <config_distro_bootcmd.h>
-
 
 #define CONFIG_EXTRA_ENV_SETTINGS \
-"kernel_addr_r=0x48080000\0" \
-	"fdt_addr_r=0x48000000\0" \
-	"scriptaddr=0x50000000\0" \
-	"pxefile_addr_r=0x51000000\0" \
-	"ramdisk_addr_r=0x52000000\0" \
-	"bootdelay=2\0" \
+	"usb_pgood_delay=2000\0" \
 	"bootm_size=0x10000000 \0" \
-	"loadaddr=0x48080000 \0" \
- 	"fdtaddr=0x48000000 \0" \
-	"fdtfile=" CONFIG_DEFAULT_FDT_FILE "\0" \
-	BOOTENV
-
+	"prodsdbootargs=setenv bootargs rw rootwait earlycon root=/dev/mmcblk1p2 \0" \
+	"prodemmcbootargs=setenv bootargs rw rootwait earlycon root=/dev/mmcblk0p2 \0" \
+	"bootimage=unzip 0x4A080000 0x48080000; booti 0x48080000 - 0x48000000 \0" \
+	"emmcload=ext4load mmc 0:2 0x48080000 boot/Image;ext4load mmc 0:2 0x48000000 boot/r9a07g044l_UTI_rzg2l_board.dtb;run prodemmcbootargs \0" \
+	"sd1load=ext4load mmc 1:2 0x48080000 boot/Image;ext4load mmc 1:2 0x48000000 boot/r9a07g044l_UTI_rzg2l_board.dtb;run prodsdbootargs \0" \
+	"bootcmd_check=if mmc dev 1; then run sd1load; else run emmcload; fi \0"
 
 #define CONFIG_BOOTCOMMAND	"env default -a;run bootcmd_check;run bootimage"
 
