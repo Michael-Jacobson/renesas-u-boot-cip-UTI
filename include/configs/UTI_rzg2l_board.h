@@ -62,7 +62,7 @@
 
 #define CONFIG_EXTRA_ENV_SETTINGS \
 	"usb_pgood_delay=3000\0" \
-	"ethaddr=00:1B:C4:03:D0:8F \0" \
+	"ethaddr=00:1B:C4:03:D0:8F\0" \
 	"bootm_size=0x10000000 \0" \
 	"prodsdbootargs=setenv bootargs rw rootwait earlycon root=/dev/mmcblk1p2 \0" \
 	"prodemmcbootargs=setenv bootargs rw rootwait earlycon root=/dev/mmcblk0p2 \0" \
